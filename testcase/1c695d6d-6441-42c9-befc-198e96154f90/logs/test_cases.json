@@ -1,0 +1,11 @@
+[
+  {
+    "id": "test_1",
+    "name": "test_agent.py::test_integration_endpoint_validation_error_missing_query",
+    "description": "Test: test_agent.py::test_integration_endpoint_validation_error_missing_query",
+    "type": "integration",
+    "status": "passed",
+    "duration": 0.0,
+    "error": null
+  }
+]
