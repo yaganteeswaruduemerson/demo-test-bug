@@ -1,0 +1,15 @@
+{
+  "name": "performance_endpoint_call_time_with_mocked_processing",
+  "description": "Performance test: measure endpoint time for a valid /query call with process_query mocked to return quickly.",
+  "test_type": "performance",
+  "input": "Use TestClient to POST /query with a valid payload; monkeypatch _agent.process_query to AsyncMock(return_value='Perf endpoint result').",
+  "output": "HTTP response received within threshold; status 200",
+  "success_criteria": [
+    "response.status_code == 200",
+    "duration < 2.0 seconds"
+  ],
+  "error_scenarios": [
+    "endpoint slower due to event loop scheduling",
+    "mocking fails and causes longer delays"
+  ]
+}
