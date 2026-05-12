@@ -1,0 +1,15 @@
+{
+  "name": "performance_process_query_time_with_mocks",
+  "description": "Performance test: measure time for process_query with mocked retrieval and LLM to ensure it completes quickly (< 1s).",
+  "test_type": "performance",
+  "input": "Create ElectricVehicleTypeAgent(); patch agent._retriever.retrieve_chunks to AsyncMock(return_value=['chunk1']); patch agent._llm.generate_response to AsyncMock(return_value='Short answer'); measure elapsed time for await agent.process_query('Compute EV types').",
+  "output": "Elapsed time < 1.0 seconds",
+  "success_criteria": [
+    "duration < 1.0",
+    "result is a non-empty string"
+  ],
+  "error_scenarios": [
+    "unexpected delay in mocks",
+    "async scheduling issue"
+  ]
+}
