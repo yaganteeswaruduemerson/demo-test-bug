@@ -1,0 +1,16 @@
+{
+  "name": "integration_endpoint_returns_success_with_mocked_agent",
+  "description": "Integration test: POST /query with a valid payload; mock the agent.process_query to return a deterministic answer and verify HTTP 200 and expected response shape.",
+  "test_type": "integration",
+  "input": "Use TestClient to POST /query with JSON {'query': 'Tell me about EV types'}. Monkeypatch _agent.process_query to AsyncMock(return_value='Integration result').",
+  "output": "HTTP 200 with JSON containing {'success': true, 'answer': 'Integration result'}",
+  "success_criteria": [
+    "response.status_code == 200",
+    "response.json().get('success') is True",
+    "response.json().get('answer') == 'Integration result'"
+  ],
+  "error_scenarios": [
+    "process_query raises exception",
+    "endpoint returns non-200 due to other errors"
+  ]
+}
