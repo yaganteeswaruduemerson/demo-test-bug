@@ -1,0 +1,14 @@
+{
+  "name": "security_endpoint_rejects_empty_string_query",
+  "description": "Security-style test: ensure endpoint rejects empty string queries (validation should fail).",
+  "test_type": "security",
+  "input": "POST /query with JSON {'query': ''}.",
+  "output": "HTTP 422 response due to validation error",
+  "success_criteria": [
+    "response.status_code == 422"
+  ],
+  "error_scenarios": [
+    "message indicates invalid input but status not 422",
+    "exception routing changes"
+  ]
+}
