@@ -1,0 +1,14 @@
+{
+  "name": "functional_process_query_successful_end_to_end",
+  "description": "Unit-level functional test: verify ElectricVehicleTypeAgent.process_query returns the mocked LLM output when chunks are retrieved successfully. Mocks: AzureAISearchClient.retrieve_chunks returns a non-empty list; LLMService.generate_response returns a fixed string.",
+  "test_type": "functional",
+  "input": "Create ElectricVehicleTypeAgent(); patch agent._retriever.retrieve_chunks to AsyncMock(return_value=['chunk1']); patch agent._llm.generate_response to AsyncMock(return_value='Final answer about EV types.'); invoke await agent.process_query('Tell me about EV types').",
+  "output": "final_text equals 'Final answer about EV types.'",
+  "success_criteria": [
+    "result == 'Final answer about EV types.'"
+  ],
+  "error_scenarios": [
+    "retrieve_chunks raises exception",
+    "generate_response raises exception"
+  ]
+}
