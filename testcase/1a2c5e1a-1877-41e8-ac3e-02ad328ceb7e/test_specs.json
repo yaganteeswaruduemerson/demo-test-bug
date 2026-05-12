@@ -1,0 +1,14 @@
+{
+  "name": "security_endpoint_rejects_non_string_query",
+  "description": "Security-style test: ensure endpoint rejects non-string query payloads (e.g., numeric) with HTTP 422 due to request model validation.",
+  "test_type": "security",
+  "input": "POST /query with JSON {'query': 123} (type mismatch).",
+  "output": "HTTP 422 response due to validation error",
+  "success_criteria": [
+    "response.status_code == 422"
+  ],
+  "error_scenarios": [
+    "server returns 200 due to lax validation",
+    "unexpected 500 error"
+  ]
+}
