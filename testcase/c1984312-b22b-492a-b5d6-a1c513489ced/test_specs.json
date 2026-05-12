@@ -1,0 +1,13 @@
+{
+  "name": "functional_process_query_fallback_no_chunks",
+  "description": "Unit-level functional test: verify process_query returns the fallback message when no chunks are retrieved.",
+  "test_type": "functional",
+  "input": "Create ElectricVehicleTypeAgent(); patch agent._retriever.retrieve_chunks to AsyncMock(return_value=[]).",
+  "output": "final_text equals FALLBACK_RESPONSE constant.",
+  "success_criteria": [
+    "final_text == FALLBACK_RESPONSE"
+  ],
+  "error_scenarios": [
+    "retrieve_chunks unexpectedly returns non-empty; handled gracefully"
+  ]
+}
