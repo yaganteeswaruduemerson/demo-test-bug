@@ -1,0 +1,2 @@
+Pre-pytest Syntax Auto-fix Warnings:
+  - config.py: removed 1 stray trailing dot(s) after parentheses.
