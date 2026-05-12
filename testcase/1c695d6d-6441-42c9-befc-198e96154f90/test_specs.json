@@ -1,0 +1,14 @@
+{
+  "name": "integration_endpoint_validation_error_missing_query",
+  "description": "Integration test: POST /query with missing required field should yield HTTP 422 (FastAPI validation error).",
+  "test_type": "integration",
+  "input": "Use TestClient to POST /query with JSON {} (missing 'query' field).",
+  "output": "HTTP 422 response from FastAPI validation",
+  "success_criteria": [
+    "response.status_code == 422"
+  ],
+  "error_scenarios": [
+    "framework validation error structure differs",
+    "decorator interferes with standard 422 handling"
+  ]
+}
