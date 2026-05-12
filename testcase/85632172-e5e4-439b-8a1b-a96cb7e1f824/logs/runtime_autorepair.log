@@ -1,0 +1,3 @@
+Runtime Auto-repair Notes:
+  - Re-sanitized config.py for runtime retry
+  - LLM repair: successfully regenerated failing tests
